@@ -570,6 +570,23 @@ function wireButtons() {
     designOver.addEventListener("click", () => { state.designMode = "overloaded"; designOver.classList.add("active"); designBalanced.classList.remove("active"); renderDesignBlocks(); });
   }
 
+  const paletteGoodBtn = document.getElementById("paletteGood");
+  const paletteBadBtn = document.getElementById("paletteBad");
+  if (paletteGoodBtn && paletteBadBtn) {
+    paletteGoodBtn.addEventListener("click", () => {
+      state.paletteMode = "good";
+      paletteGoodBtn.classList.add("active");
+      paletteBadBtn.classList.remove("active");
+      renderPalette(state.paletteMode);
+    });
+    paletteBadBtn.addEventListener("click", () => {
+      state.paletteMode = "bad";
+      paletteBadBtn.classList.add("active");
+      paletteGoodBtn.classList.remove("active");
+      renderPalette(state.paletteMode);
+    });
+  }
+
   const structureGood = document.getElementById("structureGood");
   const structureBad = document.getElementById("structureBad");
   if (structureGood && structureBad) {
